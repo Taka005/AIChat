@@ -4,13 +4,14 @@ import json
 import sys
 import random
 
-def getNouns(text):
+def getStartText(text):
     tagger = MeCab.Tagger("-Ochasen")
     words = tagger.parse(text).split("\n")
     nouns = [word.split("\t")[0] for word in words if "名詞" in word]
-    if not nouns:
-        nouns = random.choice(words)
-    return nouns
+    if nouns:
+        return random.choice(nouns)
+    else:
+        return random.choice(words)
 
 with open("data.json", "r", encoding="utf-8") as file:
     data = json.load(file)
@@ -25,8 +26,7 @@ while True:
         tries = 0
         text = None
         while tries < 5:
-            nouns = getNouns(user_input)
-            start = random.choice(nouns)
+            start = getStartText(user_input)
             print(f"試行中: {start}")
 
             try:
