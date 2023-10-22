@@ -7,7 +7,10 @@ import random
 def getNouns(text):
     tagger = MeCab.Tagger("-Ochasen")
     words = tagger.parse(text).split("\n")
-    return [word.split("\t")[0] for word in words if "名詞" in word]
+    nouns = [word.split("\t")[0] for word in words if "名詞" in word]
+    if not nouns:
+        nouns = random.choice(words)
+    return nouns
 
 with open("data.json","r",encoding="utf-8") as file:
     data = json.load(file)
@@ -27,5 +30,5 @@ while True:
         text = model.make_sentence_with_start(beginning=start,tries=100).replace(" ","")
     except:
         text = "生成できませんでした"
-        
+
     print(f"BOT: {text}")
