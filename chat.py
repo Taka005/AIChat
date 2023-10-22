@@ -20,15 +20,13 @@ data = "\n".join([tagger.parse(sentence) for sentence in data])
 model = markovify.NewlineText(data)
 
 while True:
-    user_input = input("ユーザー: ")
-    if not user_input:
-        text = "入力してください"
-    nouns = getNouns(user_input)
-    start = random.choice(nouns)
-    
     try:
+        user_input = input("ユーザー: ")
+        nouns = getNouns(user_input)
+        start = random.choice(nouns)
+
         text = model.make_sentence_with_start(beginning=start,tries=100).replace(" ","")
     except:
         text = "生成できませんでした"
 
-    print(f"BOT: {text}")
+    print(f"ボット: {text}")
