@@ -6,7 +6,7 @@ import random
 
 def getStartText(text):
     tagger = MeCab.Tagger("-Ochasen")
-    words = tagger.parse(text).split("\n")
+    words = tagger.parse(text).split("\n")[:-2]
     nouns = [word.split("\t")[0] for word in words if "名詞" in word]
     if nouns:
         return random.choice(nouns)
