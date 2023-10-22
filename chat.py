@@ -16,6 +16,8 @@ def getStartText(text):
 with open("data.json", "r", encoding="utf-8") as file:
     data = json.load(file)
 
+print(f"{len(data)}行をロードしました")
+
 tagger = MeCab.Tagger("-Owakati")
 data = "\n".join([tagger.parse(sentence) for sentence in data])
 model = markovify.NewlineText(data)
