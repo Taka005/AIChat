@@ -17,7 +17,7 @@ if len(sys.argv) > 1:
 else:
     isStartText = False
 
-with open("data1.json","r",encoding="utf-8") as file:
+with open("data.json","r",encoding="utf-8") as file:
     data = json.load(file)
 
 tagger = MeCab.Tagger("-Owakati")
