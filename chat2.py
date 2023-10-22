@@ -11,7 +11,7 @@ def getStartText(text):
     if nouns:
         return random.choice(nouns)
     else:
-        return random.choice(words.split("\t")[0])
+        return random.choice(words[0].split("\t"))
 
 with open("data.json", "r", encoding="utf-8") as file:
     data = json.load(file)
