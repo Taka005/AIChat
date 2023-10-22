@@ -31,7 +31,7 @@ for _ in range(20):
         response = model.make_short_sentence(100,30,tries=100)
 
     if response is not None:
-        response = response.replace("   ","")
+        response = response.replace(" ","")
     else:
         response = "生成できませんでした"
 
