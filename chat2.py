@@ -26,8 +26,7 @@ while True:
     text = None
     while tries < 5:
         start = getStartText(user_input)
-        print(f"試行中: {start}")
-
+        
         try:
             text = model.make_sentence_with_start(beginning=start,tries=100).replace(" ", "")
             break
