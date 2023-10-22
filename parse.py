@@ -10,6 +10,6 @@ def is_valid_item(item):
 data = list(filter(is_valid_item,data))
 
 with open("data.json","w",encoding="utf-8") as file:
-    json.dump(filtered_data,file,ensure_ascii=False,indent=2)
+    json.dump(data,file,ensure_ascii=False,indent=2)
 
 print("処理が完了しました")
