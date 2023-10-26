@@ -13,7 +13,7 @@ def getStartText(text):
     else:
         return random.choice(words).split("\t")[0]
 
-with open("data.json", "r", encoding="utf-8") as file:
+with open("data.json","r",encoding="utf-8") as file:
     data = json.load(file)
 
 print(f"{len(data)}行をロードしました")
