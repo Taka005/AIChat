@@ -1,7 +1,7 @@
 const fs = require("fs");
-let data = require("message.json");
+const message = require("./message.json");
 
-text = data[2].data
+const data = message[2].data
   .map(d=>d.content)
   .filter(text=>text.length > 5);
 
