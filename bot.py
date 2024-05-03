@@ -40,7 +40,7 @@ tagger = MeCab.Tagger("-Owakati")
 data = "\n".join([tagger.parse(sentence) for sentence in data])
 model = markovify.NewlineText(data)
 
-client = discord.Client()
+client = discord.Client(intents=discord.Intents.all())
 
 @client.event
 async def on_ready():
