@@ -14,11 +14,11 @@ def getStartText(text):
     else:
         return random.choice(words).split("\t")[0]
 
-def getText(input):
+def getText(data):
     tries = 0
     text = None
     while tries < 5:
-        start = getStartText(user_input)
+        start = getStartText(data)
 
         try:
             text = model.make_sentence_with_start(beginning=start,tries=100).replace(" ", "")
@@ -51,7 +51,7 @@ async def on_message(message):
     if message.author.bot:
         return
 
-    if message.channel.id == "1235791172656693268":
+    if message.channel.id == int("1235791172656693268"):
         await message.channel.send(content=getText(message.content),allowed_mentions=discord.AllowedMentions.none())
 
 client.run("")
